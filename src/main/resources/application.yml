@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          username: ###
+          password: ###
+          uri: https://github.com/aikobin/Config # 配置git仓库的地址
+          search-paths: test,dev # git仓库地址下的相对地址，可以配置多个，用,分割。
+server:
+  port: 8191
+info:
+  version: "@project.version@"
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/    # 指定注册中心的地址
+encrypt:
+  keyStore:
+    location: classpath:/server.jks   # server.jks的配置文件的路径
+    password: studyjava      # 设置store的密码
+    alias: mytestkey
+    secret: changeit      # keypass密码
+
